@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import styled from "styled-components";
+
+const Button = styled.button`
+  color: red;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledDiv className="App">
+      <StyledDiv data-testid="test1">
+        First part
+        <Button data-testid="button">Red</Button>
+      </StyledDiv>
+      <StyledDiv2 data-testid="test2">Work god damn it</StyledDiv2>
+      <div className="testred" data-testid="testred">
+        this one is red
+      </div>
+      <div>this one is blue</div>
+    </StyledDiv>
   );
 }
+
+const StyledDiv = styled.div`
+  color: red;
+  & + div {
+    color: blue;
+  }
+`;
+
+const StyledDiv2 = styled.div``;
 
 export default App;
